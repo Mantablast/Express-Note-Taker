@@ -1,14 +1,32 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Express note taker to schedule tasks in a day",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Aimee J",
+  "license": "UNLICENSED",
   "dependencies": {
-    "express": "^4.16.4"
-  }
+    "express": "^4.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MissAimeeJay/Express-Note-Taker.git"
+  },
+  "keywords": [
+    "notes",
+    "note",
+    "taking",
+    "writing",
+    "composition",
+    "tasks",
+    "schedule"
+  ],
+  "bugs": {
+    "url": "https://github.com/MissAimeeJay/Express-Note-Taker/issues"
+  },
+  "homepage": "https://github.com/MissAimeeJay/Express-Note-Taker#readme"
 }

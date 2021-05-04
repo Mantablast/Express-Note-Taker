@@ -1,9 +1,11 @@
-//Enable and use Express for GET, POST and (DELETE*bonus)
-const app = express();
 //Enable file system for use
 const fs = require("fs");
 //Enable use of file and directory paths
 const path = require("path");
+//Require express to use
+const express = require("express");
+//Enable and use Express for GET, POST and (DELETE*bonus)
+const app = express();
 //Enabling use of other files like CSS, JS and middleware (parsing user data the right was)
 app.use(express.static('public'));
 //Enable ability to retrieve saved user notes
