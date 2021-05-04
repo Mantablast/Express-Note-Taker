@@ -7,7 +7,7 @@ const express = require("express");
 //Enable and use Express for GET, POST and (DELETE*bonus)
 const app = express();
 //Enable unique ID npm package (UUID)
-const { v4: uuidv4 } = require('uuid');
+const uuid = require('uuid');
 //Enabling use of other files like CSS, JS and middleware (parsing user data the right way)
 app.use(express.static('public'));
 //Enable ability to retrieve saved user notes
@@ -20,9 +20,7 @@ const PORT = process.env.PORT || 3001;
 
 //The following HTML routes should be created
 //get every note to index html
-app.get("*", (req,res) => {
-    res.sendFile(path.join(__dirname,"/public/index.html"))
-});
+
 //get to notes html
 app.get("/notes", (req,res) => {
     res.sendFile(path.join(__dirname,"/public/notes.html"))
@@ -34,11 +32,23 @@ app.get("/api/notes", (req,res) => {
     res.sendFile(path.join(__dirname,"/db/db.json"))
 });
 
+app.get("*", (req,res) => {
+    res.sendFile(path.join(__dirname,"/public/index.html"))
+});
 //POST /api/notes  (when new notes are created)
 //should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved (look into npm packages that could do this for you).
-app.post("", (req,res) => {
+app.post("/api/notes", (req,res) => {
     let noteId = uuid.stringify();
-    let userTitle = req.body;
-    let userNote = req.body;
-    let noteLi = JSON.parse
-})
+    // let userTitle = req.title;
+    let wholeNote = req.body;
+    let noteLi = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+    //Push the items to an array
+    noteLi.push(noteId, wholeNote);
+    //Write parsed note to json database
+    fs.writeFileSync("./db/db.json", JSON.stringify(noteLi));
+    res.json(noteLi);
+    console.log(noteLi + "wrote to database");
+});
+
+app.listen(PORT, () => console.log("Server listening on port " + PORT));
+
