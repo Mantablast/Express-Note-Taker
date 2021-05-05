@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //Setting a port variable to be used in multple areas of js files
 const PORT = process.env.PORT || 3001;
-let noteLi = [];
+let noteLi = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
 
 //The following HTML routes should be created
 //get every note to index html
@@ -42,7 +42,7 @@ app.post("/api/notes", (req,res) => {
     // let userTitle = req.title;
     let wholeNote = req.body;
     wholeNote.id = noteId;
-    let noteLi = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+    
     //Push the items to a single array
     noteLi.push(wholeNote);
     //Write parsed note to json database
@@ -57,7 +57,6 @@ app.delete('/api/notes/:id', (req,res) => {
 const { id } = req.params;
 //gather id from requested param and find it in the noteLi
 const findTheNote = noteLi.find(noteLi => noteLi.id === id);
-// const findTheNote = noteLi.filter(noteLi => noteLi.id === id);
 console.log ("The requested id:" + id);
 console.log ("After searching note list: " + findTheNote);
 //if it is present
@@ -73,4 +72,3 @@ if(findTheNote) {
 });
 
 app.listen(PORT, () => console.log("Server listening on port " + PORT));
-
