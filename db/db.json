@@ -1,1 +1,16 @@
-[{"title":"Test Title","text":"Test text"}]
+[
+    {
+        "title": "Test Title",
+        "text": "Test text"
+    },
+    "04aa9fde-dc1a-4e33-8b6e-f2521a2d5474",
+    {
+        "title": "Testin' a note",
+        "text": "note 1"
+    },
+    "04aa9fde-dc1a-4e33-8b6e-f2521a2d5474",
+    {
+        "title": "Note 2",
+        "text": "another notes"
+    }
+],.uuidv4()

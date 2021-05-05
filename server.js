@@ -7,7 +7,8 @@ const express = require("express");
 //Enable and use Express for GET, POST and (DELETE*bonus)
 const app = express();
 //Enable unique ID npm package (UUID)
-const uuid = require('uuid');
+const { v4: uuidv4 } = require('uuid');
+const generateId = uuidv4();
 //Enabling use of other files like CSS, JS and middleware (parsing user data the right way)
 app.use(express.static('public'));
 //Enable ability to retrieve saved user notes
@@ -38,7 +39,7 @@ app.get("*", (req,res) => {
 //POST /api/notes  (when new notes are created)
 //should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved (look into npm packages that could do this for you).
 app.post("/api/notes", (req,res) => {
-    let noteId = uuid.stringify();
+    let noteId = generateId;
     // let userTitle = req.title;
     let wholeNote = req.body;
     let noteLi = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
