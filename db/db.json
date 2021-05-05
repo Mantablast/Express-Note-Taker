@@ -1,1 +1,22 @@
-[{"title":"Testing","text":"note 3","id":"97bbda88-9f39-461a-9a8d-21c04ce12f46"},{"title":"Yet another bloody note","text":"Important things to do today","id":"5177c2e3-cb7a-46fa-86a2-c7fdbeaf699f"},{"title":"Note 3","text":"task 3","id":"35cb8474-6f27-45c8-b4f3-346abc6d3a83"},{"title":"Her ther","text":"WOOW","id":"f9ea13c0-0dd8-4f22-b7cd-fbf71e703b8f"}]
+[
+    {
+        "title": "Testing",
+        "text": "note 3",
+        "id": "97bbda88-9f39-461a-9a8d-21c04ce12f46"
+    },
+    {
+        "title": "Yet another bloody note",
+        "text": "Important things to do today",
+        "id": "5177c2e3-cb7a-46fa-86a2-c7fdbeaf699f"
+    },
+    {
+        "title": "Note 3",
+        "text": "task 3",
+        "id": "35cb8474-6f27-45c8-b4f3-346abc6d3a83"
+    },
+    {
+        "title": "Her ther",
+        "text": "WOOW",
+        "id": "f9ea13c0-0dd8-4f22-b7cd-fbf71e703b8f"
+    }
+]
