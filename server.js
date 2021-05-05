@@ -55,12 +55,21 @@ app.delete('/api/notes/:id', (req,res) => {
 //Make a condition that if id matches id in json object that was clicked, filter out and update li to json
 //Assign jason object to a variable access in db.json
 const { id } = req.params;
-const deleteThis = noteLi.find(noteLi => noteLi.id === id)
-if(deleteThis) {
+//gather id from requested param and find it in the noteLi
+const findTheNote = noteLi.find(noteLi => noteLi.id === id);
+// const findTheNote = noteLi.filter(noteLi => noteLi.id === id);
+console.log ("The requested id:" + id);
+console.log ("After searching note list: " + findTheNote);
+//if it is present
+if(findTheNote) {
+    //filter out all items that do NOT match id
     noteLi = noteLi.filter(noteLi => noteLi.id !== id);
 } else {
     res.status(404).json({message: "Note item was not found."})
 }
+    //write new noteLi to json
+    fs.writeFileSync("./db/db.json", JSON.stringify(noteLi));
+    res.json(noteLi);
 });
 
 app.listen(PORT, () => console.log("Server listening on port " + PORT));
